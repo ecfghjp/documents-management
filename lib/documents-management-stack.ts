@@ -3,6 +3,9 @@ import {Bucket, BucketEncryption} from '@aws-cdk/aws-s3'
 import { Networking } from './Networking'
 import { Webserver } from './webserver'
 import { SQSQueue } from './sqs-queue'
+import { SnsTopic } from './sns-topic'
+import * as s3 from '@aws-cdk/aws-s3'
+import * as s3n from '@aws-cdk/aws-s3-notifications';
 
 import { Tags } from '@aws-cdk/core';
 import {DocumentManagementApi} from './api'
@@ -19,7 +22,8 @@ export class DocumentsManagementStack extends cdk.Stack {
     super(scope, id, props);
     const bucket = new Bucket(this, 'DocumentsBucket', {
       encryption: BucketEncryption.S3_MANAGED,
-      bucketName: "ecfghjp-documents-bucket"
+      bucketName: "ecfghjp-documents-bucket",
+      versioned: true
   });
 
     // The code that defines your stack goes here
@@ -60,7 +64,23 @@ export class DocumentsManagementStack extends cdk.Stack {
       queueName: 'DocumentsQueue'
     });
     Tags.of(webServerEcs).add("Module","Queue");
+    //create a subscription and assign it to the queue
+    
+    //create a topic and add to queue Q: when will the emails be sent
+    const topic = new SnsTopic(this,'DocumentsTopic',{
+      topicName: 'DocumentsTopic',
+      subscriberEmail:'abhisheksharmacs@gmail.com'
+    });
 
+    bucket.addEventNotification(
+      s3.EventType.OBJECT_CREATED,
+      new s3n.SnsDestination(topic.topic)
+    );
+
+    bucket.addEventNotification(
+      s3.EventType.OBJECT_REMOVED,
+      new s3n.SnsDestination(topic.topic)
+    );
 
 
   }
