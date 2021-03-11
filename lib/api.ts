@@ -15,7 +15,7 @@ interface DocumentManagementApiProps{
 
 export class DocumentManagementApi extends cdk.Construct{
 
-
+    public readonly httpApi: apig.HttpApi;
     constructor(scope: cdk.Construct, id: string, props: DocumentManagementApiProps) {
         super(scope, id);
 
@@ -44,7 +44,7 @@ export class DocumentManagementApi extends cdk.Construct{
         });
 
         //create api gateway
-        const httpApi = new apig.HttpApi(this,'HttpApi',{
+         this.httpApi = new apig.HttpApi(this,'HttpApi',{
             apiName: 'document-management-api',
             createDefaultStage: true,
             corsPreflight:{
@@ -57,7 +57,7 @@ export class DocumentManagementApi extends cdk.Construct{
         
 
         //add routes
-        httpApi.addRoutes({
+        this.httpApi.addRoutes({
             path: '/getdocuments',
             methods:[
                 apig.HttpMethod.GET
@@ -66,7 +66,7 @@ export class DocumentManagementApi extends cdk.Construct{
         })
 
         new cdk.CfnOutput(this,'ApiGateway',{
-            value: httpApi.url!,
+            value: this.httpApi.url!,
             exportName: 'ApiEndpoint'
         })
 
