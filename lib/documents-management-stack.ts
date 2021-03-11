@@ -2,12 +2,17 @@ import * as cdk from '@aws-cdk/core';
 import {Bucket, BucketEncryption} from '@aws-cdk/aws-s3'
 import { Networking } from './Networking'
 import { Webserver } from './webserver'
+import { SQSQueue } from './sqs-queue'
 
 import { Tags } from '@aws-cdk/core';
 import {DocumentManagementApi} from './api'
 import * as s3deployment from '@aws-cdk/aws-s3-deployment'
 import * as path from 'path'
 import { Vpc } from '@aws-cdk/aws-ec2';
+
+interface DocumentManagementProps{
+
+}
 
 export class DocumentsManagementStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -50,6 +55,12 @@ export class DocumentsManagementStack extends cdk.Stack {
     })
 
     Tags.of(webServerEcs).add("Module","Webserver");
+
+    const sqsQueue = new SQSQueue(this,'DocumentsQueue',{
+      queueName: 'DocumentsQueue'
+    });
+    Tags.of(webServerEcs).add("Module","Queue");
+
 
 
   }

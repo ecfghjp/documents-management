@@ -8,6 +8,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
   - [Introduction](#introduction)
   - [Useful commands](#Useful-commands)
+  - [Upgrade packages](#upgrade-packages)
   - [Requirements](#requirements)
   - [Continous Integration/Deployment](#continous-integration-deployment)
 
@@ -27,11 +28,23 @@ The project builds on a document management system
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
- ## Requirements
+ ## Installs
+  - [Node JS](https://nodejs.org/en/download/)
+  - [AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+  - [AWS Console](http://console.aws.com)
+  - The project has been compiled with CDK version 1.93.0
 
-
+## Upgrade Packages
+  - Upgrade cdk by using 
+  - Check outdated dependencies in package.json by running `npm outdated`
+  - To update to a new major version all the packages run `npm install -g npm-check-updates`
+  - Then run `ncu -u` and `npm update`
+  
 ## Build Steps
 
+ - Down load the project by either cloning or forking the repository
+ - Assuming the AWS CLI is setup , on the terminal go to main directory(documents-management) and 
+ - 
 
 ## Continous Integration/Deployment
 
