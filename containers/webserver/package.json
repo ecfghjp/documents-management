@@ -1,0 +1,21 @@
+{
+  "name": "express-webserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build:ts": "tsc",
+    "docker:build": "docker build -t documents-api-webserver .",
+    "docker:run": "docker run -it -e PORT=8080 -p 8080:8080 -e API_BASE=https://8lc90ilr1k.execute-api.eu-west-2.amazonaws.com/ documents-api-webserver"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.33",
+    "typescript": "^4.2.3"
+  }
+}

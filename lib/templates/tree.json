@@ -1,0 +1,66 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "CdkCreditCardStack": {
+        "id": "CdkCreditCardStack",
+        "path": "CdkCreditCardStack",
+        "children": {
+          "DocumentsBucket": {
+            "id": "DocumentsBucket",
+            "path": "CdkCreditCardStack/DocumentsBucket",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CdkCreditCardStack/DocumentsBucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketEncryption": {
+                      "serverSideEncryptionConfiguration": [
+                        {
+                          "serverSideEncryptionByDefault": {
+                            "sseAlgorithm": "AES256"
+                          }
+                        }
+                      ]
+                    },
+                    "bucketName": "ecfghjp-documents-bucket"
+                  }
+                }
+              },
+              "Notifications": {
+                "id": "Notifications",
+                "path": "CdkCreditCardStack/DocumentsBucket/Notifications"
+              }
+            }
+          },
+          "DocumentsBucketNameExporter": {
+            "id": "DocumentsBucketNameExporter",
+            "path": "CdkCreditCardStack/DocumentsBucketNameExporter"
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "CdkCreditCardStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "CdkCreditCardStack/CDKMetadata/Default"
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "CdkCreditCardStack/CDKMetadata/Condition"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

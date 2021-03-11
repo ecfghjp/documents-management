@@ -1,0 +1,113 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CdkCreditCardStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CdkCreditCardStack.template.json"
+      },
+      "metadata": {
+        "/CdkCreditCardStack/DocumentsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DocumentsBucket9EC9DEB9",
+            "trace": [
+              "new Bucket (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:1331:22)",
+              "new CdkCreditCardStack (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/lib/cdk-credit-card-stack.ts:8:20)",
+              "Object.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/bin/cdk-credit-card.ts:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:936:30)",
+              "Module.m._compile (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:947:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:790:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:703:12)",
+              "Function.Module.runMain (internal/modules/cjs/loader.js:999:10)",
+              "main (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:936:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)",
+              "Module.load (internal/modules/cjs/loader.js:790:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:703:12)",
+              "Function.Module.runMain (internal/modules/cjs/loader.js:999:10)",
+              "/Users/abhishek.sharma/custom_node_modules/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/CdkCreditCardStack/DocumentsBucketNameExporter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DocumentsBucketNameExporter",
+            "trace": [
+              "new CdkCreditCardStack (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/lib/cdk-credit-card-stack.ts:14:5)",
+              "Object.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/bin/cdk-credit-card.ts:7:1)",
+              "Module._compile (internal/modules/cjs/loader.js:936:30)",
+              "Module.m._compile (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:947:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:790:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:703:12)",
+              "Function.Module.runMain (internal/modules/cjs/loader.js:999:10)",
+              "main (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:936:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:947:10)",
+              "Module.load (internal/modules/cjs/loader.js:790:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:703:12)",
+              "Function.Module.runMain (internal/modules/cjs/loader.js:999:10)",
+              "/Users/abhishek.sharma/custom_node_modules/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/CdkCreditCardStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:297:20)",
+              "process.emit (events.js:209:13)",
+              "process.EventEmitter.emit (domain.js:476:20)",
+              "process.emit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/source-map-support/source-map-support.js:495:21)",
+              "process.topLevelDomainCallback (domain.js:131:23)"
+            ]
+          }
+        ],
+        "/CdkCreditCardStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:60:27)",
+              "/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:297:20)",
+              "process.emit (events.js:209:13)",
+              "process.EventEmitter.emit (domain.js:476:20)",
+              "process.emit (/Users/abhishek.sharma/Documents/My Learning/My Projects/GITHub/aws/cdk-credit-card/node_modules/source-map-support/source-map-support.js:495:21)",
+              "process.topLevelDomainCallback (domain.js:131:23)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "get-documents-service",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.72",
+    "aws-sdk": "^2.860.0"
+  }
+}
