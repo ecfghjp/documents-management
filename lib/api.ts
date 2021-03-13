@@ -10,7 +10,6 @@ import {LambdaProxyIntegration} from '@aws-cdk/aws-apigatewayv2-integrations'
 
 interface DocumentManagementApiProps{
     documentsBucket: s3.IBucket
-
 }
 
 export class DocumentManagementApi extends cdk.Construct{
@@ -19,6 +18,7 @@ export class DocumentManagementApi extends cdk.Construct{
     constructor(scope: cdk.Construct, id: string, props: DocumentManagementApiProps) {
         super(scope, id);
 
+        //calls a lambda function defining entry point(ejs file ) and data to be passed to the ejs file
         const getDocumentsFunction = new lambda.NodejsFunction(this,'GetDocumentsLambdaFunction',{
             runtime: Runtime.NODEJS_12_X,
             entry: path.join(__dirname,'..','api','get-documents','index.ts'),
@@ -28,6 +28,9 @@ export class DocumentManagementApi extends cdk.Construct{
             },
         });
 
+        //publish message to queue as well
+        
+        //gives permissions for the lambda to access the bucket
         const bucketContainerPermissions = new iam.PolicyStatement();
         bucketContainerPermissions.addResources(props.documentsBucket.bucketArn);
         bucketContainerPermissions.addActions('s3:ListBucket');
@@ -39,6 +42,7 @@ export class DocumentManagementApi extends cdk.Construct{
         getDocumentsFunction.addToRolePolicy(bucketPermissions);
 
         //carete integration - npm install @aws-cdk/aws-apigatewayv2-integrations --save
+        //creates integration between api and lambda function
         const httpIntegration = new LambdaProxyIntegration({
             handler: getDocumentsFunction
         });
@@ -57,6 +61,7 @@ export class DocumentManagementApi extends cdk.Construct{
         
 
         //add routes
+        //add http routes to api 
         this.httpApi.addRoutes({
             path: '/getdocuments',
             methods:[
