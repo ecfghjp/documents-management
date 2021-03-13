@@ -8,6 +8,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
   - [Introduction](#introduction)
   - [Useful commands](#Useful-commands)
+  - [Installs and Prerequisites](install-and-prerequisites)
   - [Upgrade packages](#upgrade-packages)
   - [Requirements](#requirements)
   - [Continous Integration/Deployment](#continous-integration-deployment)
@@ -28,10 +29,12 @@ The project builds on a document management system
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
- ## Installs
+ ## Installs and Prerequisites
   - [Node JS](https://nodejs.org/en/download/)
-  - [AWS Cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+  - [AWS cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
   - [AWS Console](http://console.aws.com)
+  - [AWS Credential Setup](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html)
+  - [AWS CDK Setup](https://docs.aws.amazon.com/cdk/)
   - The project has been compiled with CDK version 1.93.0
 
 ## Upgrade Packages

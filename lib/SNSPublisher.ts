@@ -7,6 +7,7 @@ import { S3EventSource } from '@aws-cdk/aws-lambda-event-sources';
 import { Runtime } from '@aws-cdk/aws-lambda';
 import { ITopic, Topic } from '@aws-cdk/aws-sns';
 
+// This is  construct for the SNS Publisher and should call a lambda written somewhere else
 interface SNSPublisherProps{
   bucket: s3.Bucket
   topic: ITopic
