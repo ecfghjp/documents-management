@@ -7,6 +7,11 @@ import { Runtime } from '@aws-cdk/aws-lambda';
 import { ITopic, Topic, Subscription } from '@aws-cdk/aws-sns';
 import * as subscriptions from '@aws-cdk/aws-sns-subscriptions';
 import * as s3n from '@aws-cdk/aws-s3-notifications';
+import * as ses from '@aws-cdk/aws-ses'
+import { Effect } from '@aws-cdk/aws-iam';
+import * as AWS from 'aws-sdk'
+
+
 
 
 
@@ -51,6 +56,21 @@ export class SNSSubscriber extends cdk.Construct{
       bucketPermissions.addResources(`${props.bucket.bucketArn}/*`);
       bucketPermissions.addActions('s3:GetObject','s3:PutObject');
       subscriptionFunction.addToRolePolicy(bucketPermissions);
+
+      //verify SES sender
+      const ses = new AWS.SES();
+      var params = {
+        EmailAddress: "abhisheksharmacs@gmail.com"
+       };
+      ses.verifyEmailIdentity(params,function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else     console.log(data);
+      });
+      //permissions to send email from ses
+      const emailPermissions = new iam.PolicyStatement();
+      emailPermissions.addResources('*');
+      emailPermissions.addActions('ses:SendEmail', 'SES:SendRawEmail');
+      subscriptionFunction.addToRolePolicy(emailPermissions);
     }
 
     

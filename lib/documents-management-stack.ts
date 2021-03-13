@@ -4,6 +4,7 @@ import { Networking } from './Networking'
 import { Webserver } from './webserver'
 import { SQSQueue } from './sqs-queue'
 import { SnsTopic } from './sns-topic'
+import * as ses from '@aws-cdk/aws-ses'
 import { SNSPublisher } from './SNSPublisher'
 import { Tags } from '@aws-cdk/core';
 import {DocumentManagementApi} from './api'
@@ -80,7 +81,6 @@ export class DocumentsManagementStack extends cdk.Stack {
     //create an SNS topic
     const topic = new SnsTopic(this,'DocumentsTopic',{
       topicName: 'DocumentsTopic',
-      subscriberEmail:'abhisheksharmacs@gmail.com'
     });
 
     //lambda function call to the topic

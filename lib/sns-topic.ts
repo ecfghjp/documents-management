@@ -7,7 +7,6 @@ import * as subs from '@aws-cdk/aws-sns-subscriptions';
 //created a sns topic for documents and added a subcription to it
 interface SnsTopicProps{
     topicName: string
-    subscriberEmail: string
 }
 
 export class SnsTopic extends cdk.Construct{
@@ -18,6 +17,5 @@ export class SnsTopic extends cdk.Construct{
             topicName: props.topicName,
             displayName: 'Customer subscription topic'
         });
-        this.topic.addSubscription(new subs.EmailSubscription(props.subscriberEmail));
     }
 }
