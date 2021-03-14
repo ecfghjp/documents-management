@@ -18,7 +18,7 @@ export class SNSPublisher extends cdk.Construct{
         super(scope, id);
 const getDocumentsFunction = new lambda.NodejsFunction(this,'GenerateSNSNotificationFunction',{
     runtime: Runtime.NODEJS_12_X,
-    entry: path.join(__dirname,'..','api','get-documents','sns_publisher.ts'),
+    entry: path.join(__dirname,'..','functions','sns_publisher.ts'),
     handler: 'handler',
     environment:{
       DOCUMENT_BUCKET_NAME: props.bucket.bucketName,

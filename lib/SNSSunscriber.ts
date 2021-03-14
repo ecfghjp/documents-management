@@ -11,15 +11,12 @@ import * as ses from '@aws-cdk/aws-ses'
 import { Effect } from '@aws-cdk/aws-iam';
 import * as AWS from 'aws-sdk'
 
-
-
-
-
 interface SNSSubscriberProps{
 
     bucket: s3.Bucket
     topic: ITopic
-  
+    senderEmailAddress: string
+    reciecerEmailAddress: string
 }
 
 export class SNSSubscriber extends cdk.Construct{
@@ -27,11 +24,13 @@ export class SNSSubscriber extends cdk.Construct{
         super(scope, id);
         const subscriptionFunction = new lambda.NodejsFunction(this,'SubscriberSNSTopic',{
             runtime: Runtime.NODEJS_12_X,
-            entry: path.join(__dirname,'..','api','get-documents','sns_subscriber.ts'),
+            entry: path.join(__dirname,'..','functions','sns_subscriber.ts'),
             handler: 'handler',
             environment:{
                 DOCUMENT_BUCKET_NAME: props.bucket.bucketName,
-                TOPIC_ARN: props.topic.topicArn
+                TOPIC_ARN: props.topic.topicArn,
+                SENDER_EMAIL: props.senderEmailAddress,
+                RECIEVER_EMAIL: props.reciecerEmailAddress
             }
         });
         props.topic.addSubscription(new subscriptions.LambdaSubscription(subscriptionFunction));
@@ -60,7 +59,7 @@ export class SNSSubscriber extends cdk.Construct{
       //verify SES sender
       const ses = new AWS.SES();
       var params = {
-        EmailAddress: "abhisheksharmacs@gmail.com"
+        EmailAddress: props.senderEmailAddress
        };
       ses.verifyEmailIdentity(params,function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred

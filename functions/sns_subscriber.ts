@@ -2,8 +2,9 @@ import * as sdk from 'aws-sdk'
 import S3 from 'aws-sdk/clients/s3'
 import { Session } from 'inspector';
 
-const topicarn = process.env.TOPIC_ARN;
 const bucketName = process.env.DOCUMENT_BUCKET_NAME;
+const senderEmail = process.env.SENDER_EMAIL;
+const recieverEmail = process.env.RECIEVER_EMAIL;
 const s3 = new S3();
 exports.handler = async (event: { Records: { Sns: { Message: any; }; }[]; }, context: any, callback: (arg0: null, arg1: string) => void) =>{
     console.log('Event received from SNS:', JSON.stringify(event));
@@ -18,7 +19,7 @@ exports.handler = async (event: { Records: { Sns: { Message: any; }; }[]; }, con
   // Create sendEmail params
   const params = {
     Destination: {
-      ToAddresses: ['abhisheksharmacs@gmail.com']
+      ToAddresses: [recieverEmail]
     },
     Message: {
       Body: {
@@ -32,7 +33,7 @@ exports.handler = async (event: { Records: { Sns: { Message: any; }; }[]; }, con
         Data: "Review: New document uploaded"
       }
     },
-    Source: "Abhishek Sharma<abhisheksharmacs@gmail.com>"
+    Source: senderEmail
   };
   
   // Create the promise and SES service object
